@@ -1,0 +1,1 @@
+[{"model": "product.item", "pk": 2, "fields": {"name": "pendrive", "model_no": "m1", "status": true, "add_date": "2021-04-24T05:44:16.427Z", "catagory": 1}}, {"model": "product.item", "pk": 3, "fields": {"name": "cabal", "model_no": "beetel", "status": true, "add_date": "2021-04-24T05:44:34.669Z", "catagory": 1}}]

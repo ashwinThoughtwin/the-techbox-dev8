@@ -1,0 +1,94 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Login {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">
+            Add Gadgets
+          </h4>
+        </div>
+        <div class="card-body">
+
+          <h6 class="card-category">
+              {% if msg %}
+                <span class="text-danger">{{ msg | safe }}</span>
+              {% else %}
+                Add your credentials
+              {% endif %}  
+          </h6>
+          
+          <br />
+
+          
+            <form role="form" method="post" action="{%url 'gadgets_create'%}">
+                
+              {% csrf_token %} 
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">name</label>
+                    {{ form.name }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.name.errors }}</span>
+
+              <br />
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">model_no</label>
+                    {{ form.model_no }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.model_no.errors }}</span>
+
+              <br />
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">status</label>
+                    {{ form.status }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.status.errors }}</span>
+
+              <br />
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">catagory</label>
+                    {{ form.catagory }}
+                  </div>
+                </div>
+              </div>
+              <span class="text-danger">{{ form.catagory.errors }}</span>
+              <br />
+              
+              
+              <button type="submit" name="create" class="btn btn-primary">Create</button>
+              <div class="clearfix"></div>
+            </form>         
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -1,0 +1,108 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Gadgets List</h4>
+                  <div   class="col-md-4">
+                    <a href="{%url 'gadgets_create' %}" rel="noopener noreferrer"
+                              class="btn btn-lg btn-primary">Add Gadgets</a>
+                  </div>  
+
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          name
+                        </th>
+                        <th>
+                            model_no
+                        </th>
+                        <th>
+                          status
+                        </th>
+                        <th>
+                          add_date
+                        </th>
+                       
+                        <th>
+                          catagory
+                        </th>
+                        <th>
+                          action
+                        </th>
+                      </thead>
+                      <tbody>
+                        {% for item in context2 %}
+                        <tr>
+                          <td>
+                            {{item.name}}
+                          </td>
+                          <td>
+                            {{ item.model_no}}
+                          </td>
+                          <td>
+                            {{item.status}}
+                          </td>
+                          <td>
+                            {{item.add_date}}
+                          </td>
+                          
+                          <td>
+                            {{item.catagory}}
+                          </td>
+                          <td>
+                            <a href="{% url 'gadgets_update' item.id %}"  rel="noopener noreferrer" class="btn btn-success">update</a>
+                            <a  rel="noopener noreferrer" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">delete</a>
+                          </td>
+                          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  ...
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <a class="btn btn-primary" href="{% url 'gadgets_delete' item.id %}">Save changes</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                         
+          
+                        </tr>
+                        {% endfor %}
+                        
+                      </tbody>
+                    </table>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+                </div>
+              </div>
+            </div>
+        </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

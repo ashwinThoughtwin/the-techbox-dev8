@@ -1,0 +1,64 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Team List</h4>
+                  <p class="card-category"> The team list blow here</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          dasignation 
+                        </th>
+                        <th>
+                            add_date
+                        </th>
+                        <th>
+                          action
+                      </th>
+
+                     </thead>
+                      <tbody>
+                        {% for teams in context3 %}
+                        <tr>
+                          <td>
+                            {{teams.designation}}
+                          </td>
+                          <td>
+                            {{teams.add_date}}
+                          </td>
+                          <td>
+                            <a href="{% url 'team_update' teams.id %}"  rel="noopener noreferrer" class="btn btn-success">Update</a>
+                            <a href="{%url 'team_delete' teams.id %}"  rel="noopener noreferrer" class="btn btn-danger">Delete</a>
+
+                          </td>
+                        </tr>
+                        {% endfor %}
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+                </div>
+              </div>
+            </div>
+        </div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

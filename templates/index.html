@@ -1,0 +1,170 @@
+
+{% extends "layouts/base.html" %}
+{% load cache %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons"></i>
+            </div>
+            <p class="card-category">employee</p> 
+            <h3 class="card-title">{{total_employee}}
+            
+            </h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-danger"></i>
+              {% cache 30 employee %}
+              employee table
+              {% endcache employee %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons"></i>
+            </div>
+            <p class="card-category">Gadgets</p>
+            <h3 class="card-title">{{total_items}}</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-danger"></i> Gadgets Items
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="card card-stats">
+          <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons"></i>
+            </div>
+            <p class="card-category">Issued Items</p>
+            <h3 class="card-title">{{total_assign_items}}</h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons"></i> Issued Items
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="row"class="col-md-12" > -->
+        <div class="col-md-12">
+          <div class="card" >
+            <div class="card-header card-header-primary">
+              <h4 class="card-title ">Issued Item List</h4>
+              <div   class="col-md-12">
+              <div   class="card-body" style="background-color:aqua; color:black; font-size: 15px;" > 
+                <table class="table" >
+                  <tbody>
+               <thead class=" text-primary">
+        <th>
+          employee
+        </th>
+       
+        <th>
+          email
+        </th>
+        <th>
+          Submitdate
+        </th>
+        <th>
+          Expiredate
+        </th>
+
+        <th>
+          item
+        </th>
+        <!-- <th>
+            status
+        </th>
+       <th>
+        submit_date
+      </th>   -->
+        <th>
+          action
+        </th> 
+                       
+      </thead>
+        {% for assign in total_assign_items_list %}
+        <tr>
+          <td>
+           {{assign.employee.name}}
+          </td>
+          
+          <td>
+            {{assign.employee.email}}
+          </td>
+          <td>
+            {{assign.submit_date}}
+          </td>
+          <td>
+            {{assign.expire_date}}
+          </td>
+          <td>
+            {{assign.item}}
+          </td>
+          <td>
+            <a  rel="noopener noreferrer"
+              class="btn btn-success" class="btn btn-danger" data-toggle="modal"
+              data-target="#exampleModal">delete</a>
+          </td>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                issued item deleted successfully
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a class="btn btn-primary" href="{% url 'assign_item_delete' assign.id %}">Save changes</a>
+              </div>
+         </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+</div>
+
+    
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+    });
+  </script>
+
+{% endblock javascripts %}

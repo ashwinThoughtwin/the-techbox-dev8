@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">  
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                        <center>
+                        <div class="container">
+                            <h1>Delete items</h1>
+                            <p>Are you sure you want to delete your items?</p>
+                            <div class="clearfix">
+                              <a href= "{% url 'gadgets_list' %}"><button type="button" class="btn btn-primary">Cancel</button></a>
+                              <button type="submit" class="btn btn-danger" value="submit">Delete</button>
+                            </div>
+                        </div>
+
+                    </center>
+                </form>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+
+
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

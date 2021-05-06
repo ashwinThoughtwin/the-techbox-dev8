@@ -1,0 +1,39 @@
+<!-- {% load static %}  -->
+<h2>Buy for product</h2>
+<form action="{% url 'charge' %}" method="post">
+  {% csrf_token %}
+  {% if user.is_authenticated %}
+  <p>Username: {{user.username}}</p>
+  <input type="hidden" name="uname" value={{user.username}}>
+  <p>Email: {{user.email}}</p>
+  <input type="hidden" name="email" value={{user.email}}>
+  Amount :-<input type='number' required name='amount'>
+  <hr>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="{{ key }}"
+          data-description="A Django Charge"
+          data-amount=""
+          data-locale="auto"></script>{%endif%}
+
+</form>
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django + Stripe Checkout</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{% static 'js/main.js' %}"></script>   
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      <button class="button is-primary" id="submitBtn">Purchase!</button>
+    </div>
+  </section>
+  </body>
+</html> -->
