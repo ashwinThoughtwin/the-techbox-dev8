@@ -32,7 +32,7 @@ def register_user(request):
 @login_required
 def user_logout(request):
     logout(request)
-    res =  HttpResponseRedirect("/signin")
+    res =  HttpResponseRedirect("/")
     res.delete_cookie("user_id")
     res.delete_cookie("date_login")
     messages.success(request,"Successfully Logged Out")
@@ -50,16 +50,16 @@ def user_login(request):
             login(request,user)
             if user.is_authenticated:
                 if user.is_superuser:
-                    return HttpResponseRedirect("index")
+                    return HttpResponseRedirect("index/")
                 else:
                     messages.success(request," Successfully Logged in ")
-                    res = HttpResponseRedirect("index")
+                    res = HttpResponseRedirect("index/")
                     if "rememberme" in request.POST:
                         res.set_cookie("user_id",user.id)
                         res.set_cookie("date_login",datetime.now())
                     return res
             else:
-                return HttpResponseRedirect("index")
+                return HttpResponseRedirect("index/")
         else:
             messages.success(request,"Incorrect username or Password")
             return render(request,"account/login.html")
