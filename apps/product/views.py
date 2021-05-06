@@ -127,8 +127,9 @@ class SearchResultsView(generic.ListView):
         )
         return context1
 
-class IndexView(generic.ListView):
+class IndexView(SuccessMessageMixin,generic.ListView):
     template_name = "index.html"
+    success_message = "login succesfully"
     queryset0 = Employee.objects.all()
     queryset1 = Item.objects.all()
     queryset2 = AssignItem.objects.all()
