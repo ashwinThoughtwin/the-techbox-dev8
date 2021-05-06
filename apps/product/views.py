@@ -15,6 +15,7 @@ from django.db.models import Q
 from django.views.decorators.cache import cache_page
 from django.views.generic.base import TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 
 
 from django.conf import settings 
@@ -220,14 +221,14 @@ class EmployeeDeleteView(SuccessMessageMixin,generic.DeleteView):
         return self.delete(request, *args, **kwargs)
 
 
-class GadgetsDeleteView(generic.DeleteView):
+class GadgetsDeleteView(SuccessMessageMixin,generic.DeleteView):
     model = Item
     # template_name = "gadgets_confirm_delete.html"
     success_url = "/gadgets_list/"
-    # success_message = "gadgets was deleted successfully"
+    success_message = "gadgets was deleted successfully"
 
     def get(self, request, *args, **kwargs):
-        # messages.success(self.request, self.success_message)
+        messages.success(self.request, self.success_message)
         return self.delete(request, *args, **kwargs)
 
 class AssignItemsDeleteView(generic.DeleteView):
