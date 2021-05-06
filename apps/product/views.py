@@ -220,14 +220,14 @@ class EmployeeDeleteView(SuccessMessageMixin,generic.DeleteView):
         return self.delete(request, *args, **kwargs)
 
 
-class GadgetsDeleteView(SuccessMessageMixin,generic.DeleteView):
+class GadgetsDeleteView(generic.DeleteView):
     model = Item
     # template_name = "gadgets_confirm_delete.html"
     success_url = "/gadgets_list/"
-    success_message = "gadgets was deleted successfully"
+    # success_message = "gadgets was deleted successfully"
 
     def get(self, request, *args, **kwargs):
-        messages.success(self.request, self.success_message)
+        # messages.success(self.request, self.success_message)
         return self.delete(request, *args, **kwargs)
 
 class AssignItemsDeleteView(generic.DeleteView):
