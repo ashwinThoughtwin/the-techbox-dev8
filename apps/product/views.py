@@ -31,18 +31,25 @@ class HomePageView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['key'] = settings.STRIPE_PUBLISHABLE_KEY
         return context
-    
+   
 def charge(request):
     if request.method == 'POST':
         # import pdb; pdb.set_trace()
         amount = int(request.POST['amount'])
+        product=request.POST.get("product")
         name = request.POST['uname']
         email = request.POST['email']
         customer = stripe.Customer.create(
+
             email=email,
             name=name,
             source=request.POST['stripeToken'],
             )
+        product = stripe.Product.create(
+            name=product,
+            
+        )
+      
         charge = stripe.Charge.create(
             customer=customer,
             amount=amount*100,

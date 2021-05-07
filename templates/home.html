@@ -5,9 +5,19 @@
   {% if user.is_authenticated %}
   <p>Username: {{user.username}}</p>
   <input type="hidden" name="uname" value={{user.username}}>
+  <p>product: </p>
+  
+  <select name="product">
+    <option value="charger">charger</option>
+    <option value="cabal">cabal</option>
+    <option value="pendrive">pendrive</option>
+    <option value="powerbank">powerbank</option>
+  </select>
+  
   <p>Email: {{user.email}}</p>
   <input type="hidden" name="email" value={{user.email}}>
   Amount :-<input type='number' required name='amount'>
+
   <hr>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
