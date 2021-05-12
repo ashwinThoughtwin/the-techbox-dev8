@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ["thetechbox-dev8.herokuapp.com","*"]
 
 
 # Application definition
+from django.utils.translation import gettext_lazy as _ 
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
    'django.middleware.common.CommonMiddleware',
    'django.middleware.cache.FetchFromCacheMiddleware',
@@ -144,6 +146,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
+LANGUAGES = (
+    ('en', _('English')),
+    ('fr', _('french')),
+)
+
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Kolkata'
@@ -153,6 +161,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = False
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
 
 
 # Static files (CSS, JavaScript, Images)
@@ -168,6 +180,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+PRODUCT_DEFAULT_LANGUAGE_CODE = 'en'
+
+PRODUCT_LANGUAGES = {
+    None: (
+        {'code': 'en', },
+        {'code': 'fr', },
+    ),
+    'default': {
+        # defaults to PARLER_DEFAULT_LANGUAGE_CODE
+        'fallbacks': ['en'],
+        # the default; let .active_translations() return fallbacks too.
+        'hide_untranslated': False,
+    }
+}
+
+ACCOUNT_SHOW_AT_ADMIN_PANEL = True
 
 
 EMAIL_HOST = 'smtp.gmail.com'

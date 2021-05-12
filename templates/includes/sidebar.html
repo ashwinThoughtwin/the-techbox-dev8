@@ -1,3 +1,4 @@
+{% load i18n %}
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/assets/img/sidebar-1.jpg">
       <div class="logo">
         <a target="#" rel="noopener noreferrer" 
@@ -10,59 +11,57 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item {% if 'index' == segment %} active {% endif %}">
-            <a class="nav-link" href="/index/">
+            <a class="nav-link" href="{% url 'index' %}">
               <i class="material-icons" >dashboard</i>
-              <p>Dashboard</p>
+              <p>{% trans 'dashboard' %}</p>
             </a>
+          </li>
+          <li class="nav-item {% if 'index' == segment %} active {% endif %}">
+            
           </li>
           
           </li>
           <li class="nav-item {% if 'ui-tables' in segment %} active {% endif %}">
             <a class="nav-link" href="{% url 'employee_list' %}">
               <i class="material-icons">content_paste</i>
-              <p>Employee</p>
+              <p>{% trans 'employee' %}</p>
             </a>
           </li>
           <li class="nav-item {% if 'ui-tables' in segment %} active {% endif %}">
             <a class="nav-link" href="{% url 'gadgets_list' %}">
               <i class="material-icons">content_paste</i>
-              <p>Gadgets</p>
+              <p>{% trans 'gadgets' %}</p>
             </a>
           </li>
           <li class="nav-item {% if 'ui-tables' in segment %} active {% endif %}">
             <a class="nav-link" href="{% url 'assign_item_create' %}">
               <i class="material-icons">content_paste</i>
-              <p>Assign item</p>
+              <p>{% trans 'assign item' %}</p>
             </a>
           </li>
           <li class="nav-item {% if 'ui-tables' in segment %} active {% endif %}">
             <a class="nav-link" href="{% url 'team_list' %}">
               <i class="material-icons">content_paste</i>
-              <p>Team</p>
+              <p>{% trans 'team' %}</p>
             </a>
           </li>
           <li class="nav-item {% if 'ui-tables' in segment %} active {% endif %}">
             <a class="nav-link" href="{% url 'catagory' %}">
               <i class="material-icons">content_paste</i>
-              <p>Catagory</p>
+              <p>{% trans 'catagory' %}</p>
             </a>
           </li>
-          <li class="nav-item {% if 'ui-notifications' in segment %} active {% endif %}">
-            <a class="nav-link" href="/ui-notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li>
+         
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'logout' %}" >
               <i class="material-icons">directions_run</i>
-              <p>Logout</p>
+              <p>{% trans 'logout' %}</p>
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'home' %}" >
               <i class="material-icons">directions_run</i>
-              <p>upgrade</p>
+              <p>{% trans 'upgrade' %}</p>
             </a>
           </li>
         </ul>

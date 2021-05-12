@@ -1,11 +1,12 @@
 
 {% extends "layouts/base.html" %}
 {% load cache %}
+{% load i18n %}
 
-{% block title %} Dashboard {% endblock %} 
+ 
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %} {% endblock stylesheets %}
 
 {% block content %}
 
@@ -16,7 +17,7 @@
             <div class="card-icon">
               <i class="material-icons"></i>
             </div>
-            <p class="card-category">employee</p> 
+            <p class="card-category">{% trans 'employee' %}</p> 
             <h3 class="card-title">{{total_employee}}
             
             </h3>
@@ -25,7 +26,7 @@
             <div class="stats">
               <i class="material-icons text-danger"></i>
               {% cache 30 employee %}
-              employee table
+              {% trans 'employee table' %}
               {% endcache employee %}
             </div>
           </div>
@@ -37,12 +38,12 @@
             <div class="card-icon">
               <i class="material-icons"></i>
             </div>
-            <p class="card-category">Gadgets</p>
+            <p class="card-category">{% trans 'gadgets' %}</p>
             <h3 class="card-title">{{total_items}}</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              <i class="material-icons text-danger"></i> Gadgets Items
+              <i class="material-icons text-danger"></i> {% trans 'Gadgets Items' %}
             </div>
           </div>
         </div>
@@ -53,12 +54,12 @@
             <div class="card-icon">
               <i class="material-icons"></i>
             </div>
-            <p class="card-category">Issued Items</p>
+            <p class="card-category"> {% trans 'Issued Items' %}</p>
             <h3 class="card-title">{{total_assign_items}}</h3>
           </div>
           <div class="card-footer">
             <div class="stats">
-              <i class="material-icons"></i> Issued Items
+              <i class="material-icons"></i>{% trans 'Issued Items' %} 
             </div>
           </div>
         </div>
@@ -68,28 +69,29 @@
         <div class="col-md-12">
           <div class="card" >
             <div class="card-header card-header-primary">
-              <h4 class="card-title ">Issued Item List</h4>
+              <h4 class="card-title ">{% trans 'Issued Item List' %}</h4>
               <div   class="col-md-12">
               <div   class="card-body" style="background-color:aqua; color:black; font-size: 15px;" > 
                 <table class="table" >
                   <tbody>
                <thead class=" text-primary">
         <th>
-          employee
+          {% trans 'employee' %}
         </th>
        
         <th>
-          email
+          {% trans 'email' %} 
         </th>
         <th>
-          Submitdate
+          {% trans 'Submitdate' %}
         </th>
         <th>
-          Expiredate
+          {% trans 'Expiredate' %}
         </th>
 
         <th>
-          item
+          {% trans 'item' %}
+          
         </th>
         <!-- <th>
             status
@@ -98,7 +100,8 @@
         submit_date
       </th>   -->
         <th>
-          action
+          {% trans 'action' %}
+          
         </th> 
                        
       </thead>

@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import datetime
+from django.utils.translation import gettext as _
+
 
 # from django.contrib.auth.models import User
  
@@ -30,6 +32,7 @@ class Catagory(models.Model):
         return self.name
 
 class Employee(models.Model):
+  
     name = models.CharField(max_length=50)
     team = models.ForeignKey("Team", on_delete=models.CASCADE)
     address = models.CharField(max_length=50)

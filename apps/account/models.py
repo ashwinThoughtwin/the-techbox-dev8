@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 
+
 class RegisterUser(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     dob = models.CharField(max_length=250,null=True,blank=True)

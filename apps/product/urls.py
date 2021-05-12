@@ -67,6 +67,7 @@ urlpatterns = [
     path("employee_create/", views.EmployeesCreateView.as_view(), name="employee_create"),
     path("gadgets_create/", views.GadgetsCreateView.as_view(), name="gadgets_create"),
 
+    path('tran/', views.tran, name='tran'),
     path('home/', views.HomePageView.as_view(), name='home'),
     path('charge/', views.charge, name='charge'),
     # path('config/', views.stripe_config),

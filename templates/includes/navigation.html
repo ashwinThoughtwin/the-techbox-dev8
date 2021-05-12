@@ -1,9 +1,9 @@
-
+{% load i18n %}
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Dashboard</a>
+            <a class="navbar-brand" >{% trans 'dashboard' %}</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -16,7 +16,7 @@
           <div class="collapse navbar-collapse justify-content-end">
             <form class="navbar-form" method="GET" action="{% url 'search' %}">
               <div class="input-group no-border">
-                <input type="text" value="" name="q" class="form-control" placeholder="Search...">
+                <input type="text" value="" name="q" class="form-control" placeholder="{% trans 'search' %}">
                 <button type="submit" class="btn btn-white btn-round btn-just-icon">
                   <i class="material-icons" >search</i>
                   <div class="ripple-container"></div>
@@ -24,13 +24,22 @@
               </div>
             </form>
             <ul class="navbar-nav">
+              
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
+                <form  action="{% url 'tran' %}" method="get">{% csrf_token %}
+                  <input name="next" type="hidden" value="{{ redirect_to }}">
+                  <select name="lang">
+                      {% get_current_language as LANGUAGE_CODE %}
+                      {% get_available_languages as LANGUAGES %}
+                      {% get_language_info_list for LANGUAGES as languages %}
+                      {% for language in languages %}
+                          <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                              {{ language.name_local }} ({{ language.code }})
+                          </option>
+                      {% endfor %}
+                  </select>
+                  <input type="submit" value="Go">
+              </form>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" 

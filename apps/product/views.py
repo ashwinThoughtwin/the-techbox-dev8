@@ -23,6 +23,35 @@ from django.http.response import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import stripe 
 stripe.api_key = settings.STRIPE_SECRET_KEY
+from django.utils.translation import gettext as _
+from django.utils.translation import get_language, activate, gettext, ugettext
+
+
+
+
+
+def tran(request):
+    if request.method=='GET':
+        lang=request.GET['lang']
+        return redirect(f'/{lang}/index/')
+
+# def translate(language):
+#     cur_language = get_language()
+#     try:
+#         activate(language)
+#         ugettext("employee")
+#     finally:
+#         activate(cur_language)
+#     return text/
+
+
+
+
+
+
+
+
+
 
 
 class HomePageView(TemplateView):
@@ -37,7 +66,7 @@ def charge(request):
         # import pdb; pdb.set_trace()
         amount = int(request.POST['amount'])
         product=request.POST.get("product")
-        name = request.POST['uname']
+        name  = request.POST['uname']
         email = request.POST['email']
         customer = stripe.Customer.create(
 

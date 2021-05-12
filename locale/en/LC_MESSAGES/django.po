@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-05-12 10:56+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\techbox\settings.py:150
+msgid "English"
+msgstr ""
+
+#: .\techbox\settings.py:151
+msgid "french"
+msgstr ""
+
+#: .\templates\account\commons\password-reset\password_reset_email.html:2
+#, python-format
+msgid ""
+"Hey, You're receiving this email because you requested a password reset for "
+"your user account at %(site_name)s."
+msgstr ""
+
+#: .\templates\account\commons\password-reset\password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: .\templates\account\commons\password-reset\password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: .\templates\account\commons\password-reset\password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: .\templates\account\commons\password-reset\password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: .\templates\account\commons\password-reset\password_reset_subject.txt:2
+#, python-format
+msgid "Password reset on %(site_name)s"
+msgstr ""
+
+#: .\templates\includes\footer.html:9
+msgid "techbox project"
+msgstr ""
+
+#: .\templates\includes\navigation.html:6 .\templates\includes\sidebar.html:16
+msgid "dashboard"
+msgstr ""
+
+#: .\templates\includes\navigation.html:19
+msgid "search"
+msgstr ""
+
+#: .\templates\includes\sidebar.html:27 .\templates\index.html:20
+#: .\templates\index.html:79
+msgid "employee"
+msgstr ""
+
+#: .\templates\includes\sidebar.html:33 .\templates\index.html:41
+msgid "gadgets"
+msgstr ""
+
+#: .\templates\includes\sidebar.html:39
+msgid "assign item"
+msgstr ""
+
+#: .\templates\includes\sidebar.html:45
+msgid "team"
+msgstr ""
+
+#: .\templates\includes\sidebar.html:51
+msgid "catagory"
+msgstr ""
+
+#: .\templates\includes\sidebar.html:57
+msgid "notifications"
+msgstr ""
+
+#: .\templates\includes\sidebar.html:63
+msgid "logout"
+msgstr ""
+
+#: .\templates\includes\sidebar.html:69
+msgid "upgrade"
+msgstr ""
+
+#: .\templates\index.html:29
+msgid "employee table"
+msgstr ""
+
+#: .\templates\index.html:46
+msgid "Gadgets Items"
+msgstr ""
+
+#: .\templates\index.html:57 .\templates\index.html:62
+msgid "Issued Items"
+msgstr ""
+
+#: .\templates\index.html:72
+msgid "Issued Item List"
+msgstr ""
+
+#: .\templates\index.html:83
+msgid "email"
+msgstr ""
+
+#: .\templates\index.html:86
+msgid "Submitdate"
+msgstr ""
+
+#: .\templates\index.html:89
+msgid "Expiredate"
+msgstr ""
+
+#: .\templates\index.html:93
+msgid "item"
+msgstr ""
+
+#: .\templates\index.html:103
+msgid "action"
+msgstr ""
