@@ -11,7 +11,9 @@ urlpatterns = i18n_patterns(
     path('', include("apps.product.urls")),
     path('', include("apps.account.urls")),
     path('rest-auth/', include('rest_auth.urls')),
-    
+    path('', include("apps.payments.urls")),
+
+    prefix_default_language=False
 
 )
 if settings.DEBUG:

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.product',
     'apps.account',
+    'apps.payments',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
@@ -153,6 +154,7 @@ LANGUAGES = (
 
 
 LANGUAGE_CODE = 'en-us'
+prefix_default_language=False
 
 TIME_ZONE = 'Asia/Kolkata'
 
@@ -207,3 +209,14 @@ EMAIL_USE_TLS = True
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51ImzonSFESqaEVuxLGzJLtgeMckEZYBmYERBIxA83gmuphPpkIHdHTE8i4gV0RHA1hcngxwkw80XfmAo8euQo4OG00LlFWtM1F'
 STRIPE_SECRET_KEY = 'sk_test_51ImzonSFESqaEVuxrDRh1e4cpe0s7WiPYEyk2PGNNy6NnILRqhV7nGC6JFcWhDuS2f9cKcpA2xWUSUpYhdRN8w5d00Xtp5NFjh'
  
+
+PAYTM_MERCHANT_ID = 'VzFQLP21066434428348'
+
+PAYTM_SECRET_KEY = 'GszS0IzpJz#yh55P'
+
+PAYTM_WEBSITE = 'WEBSTAGING'
+
+PAYTM_CHANNEL_ID = 'WEB'
+
+PAYTM_INDUSTRY_TYPE_ID = 'Retail'
+
